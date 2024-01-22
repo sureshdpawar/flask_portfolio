@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI Fashion Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("gproduct-chat app-1.png"); /* Replace with the relative path to your background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0275d8;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .demo-link {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .demo-link:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Gen AI Google Products Assistant</h1>
+        <p>
+            This innovative chatbot, developed using the Generative AI conversational Chat App feature of Google Cloud's Vertex AI.
+        </p>
+        <p>
+            You can search any google product, get prices, specifications and compare.
+        </p>
+        <p>
+            <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+            <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+            <df-messenger
+              project-id="al-ml-project"
+              agent-id="e41976b8-cd79-47cb-ba9f-c7767196a934"
+              language-code="en"
+              max-query-length="-1">
+              <df-messenger-chat
+               chat-title="Google Store">
+              </df-messenger-chat>
+            </df-messenger>
+            <style>
+              df-messenger {
+                z-index: 999;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                top: 0;
+                width: 350px;
+              }
+            </style>
+        </p>
+    </div>
+</body>
+</html>
