@@ -8,6 +8,10 @@ import os
 import smtplib
 import datetime as dt
 
+from flask import Flask, request, jsonify
+import pickle
+from transformers import AutoTokenizer, pipeline
+
 OWN_EMAIL = os.getenv('mail')
 OWN_PASSWORD = os.getenv('pass')
 
@@ -58,6 +62,41 @@ def send_email(name, email, phone, message):
         connection.login(OWN_EMAIL, OWN_PASSWORD)
         connection.sendmail(OWN_EMAIL, OWN_EMAIL, text)
 
+# Global variables for model and pipeline
+global llm_news_model
+global pipe
+pipe = None
+llm_news_model = None
+
+@app.route('/chat_news')
+def chat_interface():
+    return render_template('llm_model_news.html')
+
+# Endpoint to load the model
+@app.route('/load_llm_news_model', methods=['GET'])
+def load_model():
+    global llm_news_model, pipe
+    model_artifact_path = 'model_artifact_llm_news.pkl'  # Adjust path as needed
+
+    # Load the model from a pickle file
+    with open(model_artifact_path, 'rb') as file:
+        llm_news_model = pickle.load(file)
+
+    # Set up the tokenizer and pipeline for text generation
+    model_id = "databricks/dolly-v2-3b"  # Adjust model ID as needed
+    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    pipe = pipeline("text-generation", model=llm_news_model, tokenizer=tokenizer, max_new_tokens=256)
+
+    return jsonify({"message": "Model loaded successfully"})
+
+# Function to handle chat input and return response
+@app.route('/chat_llm_news', methods=['POST'])
+def get_model_response():
+    global pipe
+    data = request.json
+    chat_input = data['message']
+    lm_response = pipe(chat_input)
+    return jsonify({'response': lm_response[0]['generated_text']})
 
 if __name__ == '__main__':
     app.config['TEMPLATES_AUTO_RELOAD'] = True

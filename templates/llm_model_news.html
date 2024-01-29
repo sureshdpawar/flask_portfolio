@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Chat Interface</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("static/images/projects/newspaper-bkg.png"); /* Replace with the relative path to your background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: left;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0275d8;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .demo-link {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .demo-link:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Live news analysis by Gen AI </h1>
+        <p>This is a innovative project that revolutionizes live news interaction through a chat interface.
+            Utilizing ChromaDB, a vector database, it efficiently stores news embeddings for rapid retrieval.
+            The core functionality is powered by a sophisticated Large Language Model (LLM),
+            enabling real-time content generation and dynamic responses. This cutting-edge blend offers an immersive,
+            conversational experience in accessing and discussing the latest news developments.</p>
+
+        <h2>Use Case: Real-Time News Interaction and Analysis</h2>
+        <h3>Overview:</h3>
+        <p>Gen AI introduces a unique way for users to interact with live news feeds. Instead of traditional news browsing, users engage in conversational dialogue with an AI chatbot to receive and discuss the latest news.</p>
+
+        <h3>Scenario:</h3>
+        <p>A user, interested in recent technological advancements, initiates a chat with Gen AI. They request summaries of the latest tech news. The system quickly retrieves relevant news items, generates concise summaries, and presents them conversationally.</p>
+
+        <h3>Technologies Used:</h3>
+        <ul>
+            <li>ChromaDB Vector Database: Efficient retrieval of relevant news content.</li>
+            <li>Large Language Model (LLM) databricks/dolly-v2-3b: Powers real-time content generation.</li>
+            <li>Natural Language Processing (NLP): Facilitates effective communication.</li>
+            <li>Flask (Web Framework): Manages web requests and responses.</li>
+            <li>AJAX and JavaScript: Enables real-time web communication.</li>
+        </ul>
+
+        <h3>High Level Design:</h3>
+        <p>
+            <img src="static/images/projects/diagram-news.png" style="max-width:100%; height:auto; display:block;">
+        </p>
+
+        <h3>Source Code to build and test the model</h3>
+        <p>
+            <a href="https://github.com/sureshdpawar/llm-vectordb-news-analysis"> https://github.com/sureshdpawar/llm-vectordb-news-analysis </a>
+        </p>
+
+        <p>
+            <h3>Note: "The button has been disabled due to the current unavailability of sufficient computational resources required to run the model inference."</h3>
+        </p>
+
+
+        <h1>Chat User Interface</h1>
+
+    <!-- Button to load the model -->
+    <button id="loadModelButton" disabled="disabled"">Load LLM Model</button>
+    <p></p>
+    <!-- Chat input -->
+    <div>
+        <input type="text" id="chatInput" placeholder="enter search input "  size="60">
+        <button id="sendMessageButton" disabled="disabled">Send Message</button>
+    </div>
+
+    <!-- Chat output -->
+    <div id="chatOutput"></div>
+
+    <script>
+        $(document).ready(function() {
+            // Load model
+            $('#loadModelButton').click(function() {
+                $.get('/load_llm_news_model', function(data) {
+                    alert("Model Loading: " + data.message);
+                });
+            });
+
+            // Send message and get response
+            $('#sendMessageButton').click(function() {
+                var userInput = $('#chatInput').val();
+                $.ajax({
+                    url: '/chat_llm_news',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ 'message': userInput }),
+                    success: function(data) {
+                        $('#chatOutput').append('<p><b>You:</b> ' + userInput + '</p>');
+                        $('#chatOutput').append('<p><b>Model:</b> ' + data.response + '</p>');
+                    },
+                    error: function() {
+                        alert('Error in sending message');
+                    }
+                });
+            });
+        });
+    </script>
+    </div>
+
+
+</body>
+</html>

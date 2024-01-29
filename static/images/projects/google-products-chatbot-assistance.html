@@ -14,7 +14,7 @@
             background-size: cover;
             background-position: center;
             color: #333;
-            text-align: center;
+            text-align: left;
         }
         .container {
             width: 80%;
@@ -47,17 +47,42 @@
         .demo-link:hover {
             background-color: #025aa5;
         }
+         .fixed-width-div {
+            width: 70%; /* Set the width of the div to 70% of the viewport width */
+            height: 100vh; /* Full height of the viewport */
+            position: fixed; /* Fix the position relative to the viewport */
+            left: 0; /* Align to the left side of the viewport */
+            top: 0; /* Align to the top of the viewport */
+            background-color: #f0f0f0; /* Just an example background color */
+            overflow-y: auto; /* Enable vertical scrolling if the content is taller than the viewport */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Gen AI Google Products Assistant</h1>
+     <div class="fixed-width-div">
+        <h1>Gen AI Google Products Assistant</h1>
         <p>
             This innovative chatbot, developed using the Generative AI conversational Chat App feature of Google Cloud's Vertex AI.
         </p>
-        <p>
-            You can search any google product, get prices, specifications and compare.
-        </p>
+         <h2>Use Case: Chat-Based Google Product Search</h2>
+    <h2>Overview:</h2>
+    <p>This chatbot application allows users to search for products using natural language queries. The chatbot, leveraging Google's Vertex AI Conversational Chat feature, interprets user queries and retrieves relevant product information from an extensive database, streamlining the online shopping experience.</p>
+
+    <h2>Scenario:</h2>
+    <p>A user looking to purchase a new smartphone interacts with the chatbot. They type, "I'm looking for the latest smartphones under $500." The chatbot, understanding the query, uses Google's product search capabilities to fetch and display a list of smartphones that match the criteria, complete with prices and specifications.</p>
+
+    <h2>Technologies Used:</h2>
+    <ul>
+        <li>Google Vertex AI Conversational Chat: Powers the chatbot's natural language understanding and response generation.</li>
+        <li>Python: For backend development, integrating Google's Vertex AI features.</li>
+        <li>Google Product Search API: To retrieve product data in response to user queries.</li>
+        <li>Flask (Python Web Framework): Manages server-side requests and responses.</li>
+        <li>JavaScript and AJAX: For dynamic content updates on the frontend.</li>
+        <li>HTML/CSS: To structure and style the chatbot's user interface.</li>
+    </ul>
+
+    <h2>Outcome:</h2>
+    <p>The application offers an efficient, user-friendly platform for online shopping, allowing users to find products through conversational queries. It enhances the shopping experience by providing quick, relevant, and personalized product recommendations, leading to increased user engagement and satisfaction.</p>
         <p>
             <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
             <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>

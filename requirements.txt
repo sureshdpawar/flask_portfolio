@@ -5,3 +5,4 @@ Jinja2==3.0.3
 requests==2.27.1
 Flask-reCaptcha==0.4.2
 Flask-Compress
+transformers
