@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Chat Interface</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("ask-doc-bkg.png"); /* Replace with the relative path to your background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: left;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0275d8;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .demo-link {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .demo-link:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ask-your-documents with LLM, Langchain, VectorDB </h1>
+        <p>
+            "Ask-Your-Documents" is an innovative project designed to revolutionize how users interact with extensive document databases.
+            Leveraging the power of Large Language Models (LLM), Langchain, and VectorDB, this project provides an intuitive query interface
+            where users can ask natural language questions and receive accurate, context-aware responses. By integrating these technologies,
+            the system analyzes and understands vast amounts of text data, offering precise answers extracted from a comprehensive document
+            repository.
+        </p>
+
+        <h2>Use Case: Search documents for real time answers</h2>
+        <h3>Objectives:</h3>
+        <p>To provide a seamless interface for querying large document sets using natural language.</p>
+
+        <h3>Technologies Used:</h3>
+        <ul>
+            <li>ChromaDB Vector Database: Efficient retrieval of relevant content.</li>
+            <li>Large Language Model (LLM) databricks/dolly-v2-3b: Powers real-time content generation.</li>
+            <li>Langchain : Langchain for in-prompt queries</li>
+
+        </ul>
+
+        <h3>Source Code to build and test the model</h3>
+        <p>
+            <a href="https://github.com/sureshdpawar/llm-langchain-vectordb"> https://github.com/sureshdpawar/llm-langchain-vectordb </a>
+        </p>
+    </div>
+</body>
+</html>
