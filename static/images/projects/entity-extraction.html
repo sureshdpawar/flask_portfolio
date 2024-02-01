@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Chat Interface</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("newspaper-bkg.png"); /* Replace with the relative path to your background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: left;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0275d8;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .demo-link {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .demo-link:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Entity Extraction from resume using NLP</h1>
+
+        <h2>Use Case: Parse the unstructured text and extract entities</h2>
+        <h3>Overview:</h3>
+        <p>
+            A recruitment agency receives hundreds of resumes in various formats, predominantly PDFs, making the task of manually reviewing each resume
+            time-consuming and prone to human error. By implementing this NLP-based entity extraction system, the agency can automatically process and extract vital
+            information from these resumes with high accuracy. This capability enables the creation of a structured database of candidate profiles, streamlining the
+            candidate screening process. Recruiters can quickly search for specific skills or experiences, efficiently shortlist candidates, and significantly
+            speed up the recruitment cycle.</p>
+
+        <h3>Technologies Used:</h3>
+        <ul>
+            <li>NLP (Natural Language Processing): For preprocessing and transforming text data into a suitable format for model training.</li>
+            <li>NLTK (Natural Language Toolkit): This library is a powerful tool for human language data processing. It is used for tasks such as tokenization,
+                parsing, classification, and named entity recognition.</li>
+            <li>Python: The primary programming language used for implementing algorithms and data processing.</li>
+            <li>Jupyter Notebook: An interactive computing environment to document the code, results, and analysis comprehensively.</li>
+            <li>PDFMiner: A Python library used for extracting text data from PDF files. It is essential for reading resumes that are often shared in PDF
+                format, converting them into a format suitable for NLP tasks..</li>
+        </ul>
+        <h3>Source Code to build and test the model</h3>
+        <p>
+            <a href="https://github.com/sureshdpawar/nlp-entity-extraction/"> https://github.com/sureshdpawar/nlp-entity-extraction/ </a>
+        </p>
+    </div>
+</body>
+</html>

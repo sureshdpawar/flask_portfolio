@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Chat Interface</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("newspaper-bkg.png"); /* Replace with the relative path to your background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: left;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0275d8;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .demo-link {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .demo-link:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sentiment Analysis Of Yelp reviews using NLP </h1>
+
+        <h2>Use Case: Sentiment Analysis</h2>
+        <h3>Overview:</h3>
+        <p>This project focuses on leveraging Natural Language Processing (NLP) techniques to analyze sentiment in Yelp reviews. By parsing and interpreting the vast amounts of
+            text data available on Yelp, the project aims to classify reviews into sentiment categories such as positive, negative, and neutral. This classification will help businesses
+            understand customer feedback on a granular level, enabling them to improve service quality, address customer concerns more effectively, and tailor their offerings to meet customer needs better.</p>
+
+        <h3>Scenario:</h3>
+        <p>
+            A local restaurant chain seeks to enhance its customer service and menu offerings based on customer feedback available on Yelp. The chain's management team decides to implement
+            an automated system to aggregate and analyze customer reviews across different outlets to identify common themes in customer satisfaction and complaints. Using sentiment analysis, the system
+            categorizes each review's sentiment, allowing the team to prioritize areas for improvement, such as food quality, service, or ambiance. Additionally, the analysis reveals unexpected insights,
+            such as particular dishes that are consistently praised or criticized, guiding menu development and marketing strategies.
+        </p>
+
+        <h3>Technologies Used:</h3>
+        <ul>
+            <li>NLP (Natural Language Processing): For preprocessing and transforming text data into a suitable format for model training.</li>
+            <li>Transformers: Leveraged for accessing pre-trained NLP models and tokenizers, the Transformers library by Hugging Face provides a collection of state-of-the-art models such
+                as BERT (Bidirectional Encoder Representations from Transformers) that are highly effective for sentiment analysis tasks.</li>
+            <li>Python: The primary programming language used for implementing algorithms and data processing.</li>
+            <li>PyTorch:  powerful open-source machine learning library used for building and training the neural networks required for sentiment classification.</li>
+            <li>Jupyter Notebook: An interactive computing environment to document the code, results, and analysis comprehensively.</li>
+            <li>BeautifulSoup: This library parses HTML and XML documents, enabling the collection of relevant textual data needed for sentiment analysis.</li>
+        </ul>
+
+
+        <h3>Source Code to build and test the model</h3>
+        <p>
+            <a href="https://github.com/sureshdpawar/nlp-sentiment-analysis"> https://github.com/sureshdpawar/nlp-sentiment-analysis </a>
+        </p>
+
+
+    </div>
+
+
+</body>
+</html>
