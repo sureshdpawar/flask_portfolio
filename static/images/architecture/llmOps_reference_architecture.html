@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI Fashion Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("blog-ai-bkg.png"); /* Replace with the relative path to your background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: left;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0275d8;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .demo-link {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .demo-link:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reference Architecture LLMOps with MLFlow</h1>
+        <p>
+            The rise of Generative AI, particularly large language models (LLMs), necessitates a reevaluation of MLOps processes for AI-powered applications,
+            focusing on the productionization of LLMs, which have become central in both business and media. These models not only offer significant potential
+            but also introduce new challenges for MLOps, including considerations around prompt engineering, managing cost/performance trade-offs,
+            and deciding between using paid APIs or fine-tuning custom models. While LLM-specific operations, or "LLMOps", share similarities with
+            traditional MLOps, adapting MLOps platforms and processes, as well as acquiring a new mental model for integrating LLMs with conventional
+            ML workflows, is essential. The upcoming discussion will delve into key aspects such as prompt engineering, model fine-tuning, packaging,
+            and managing costs, alongside providing a reference architecture to guide modifications in production environments to accommodate LLMs.
+            This exploration aims to equip teams with the knowledge to navigate the evolving landscape of MLOps in the era of generative AI.
+        </p>
+        <p>
+            Despite the extensive list of new requirements for integrating large language models (LLMs) into MLOps processes, many existing tools and
+            processes need only minor adjustments to adapt. Fundamental aspects, such as the separation of development, staging, and production environments,
+            the use of Git for version control, MLflow Model Registry for model management, and the architecture for data management,
+            remain unchanged and continue to be crucial for operational efficiency. The existing CI/CD infrastructure and the modular structure of MLOps,
+            encompassing pipelines for model training, inference, and other tasks, also remain consistent, indicating a level of continuity in
+            MLOps practices despite the advent of generative AI.
+        </p>
+        <p>
+            To illustrate potential adjustments to your reference architecture from traditional MLOps, we provide a modified
+            version of the previous production architecture for two separate LLM-based applications:
+        </p>
+            <ol>
+                <li><strong></strong> RAG workflow using a third-party API.</li>
+                <li><strong></strong> RAG workflow using a self-hosted fine-tuned model.</li>
+            </ol>
+        <p>
+            Note that in either of these examples, the retrieval element using the vector database could be removed, and
+            the LLM queried directly through the Model Serving endpoint
+        </p>
+        <p>
+            <img src="reference-architecture-llm-RAG.png" style="max-width:100%; height:auto; display:block;">
+        </p>
+        <p>
+            <img src="llm-reference-architecture-finetuned.png" style="max-width:100%; height:auto; display:block;">
+        </p>
+        </div>
+</body>
+</html>

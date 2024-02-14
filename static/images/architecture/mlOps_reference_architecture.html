@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI Fashion Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("blog-ai-bkg.png"); /* Replace with the relative path to your background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: left;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0275d8;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .demo-link {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .demo-link:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reference Architecture MLOps, CI and CD with MLFlow</h1>
+        <p>
+            The reference architecture described outlines a deploy code workflow with a 1:1 mapping between environments and Unity Catalog, creating separate dev,
+            staging, and prod catalogs for corresponding development, staging, and production environments. In this setup, each environment mirrors a workspace,
+            allowing for the management of both data and models within each catalog.
+        </p>
+        <p>
+            <img src="mlops_reference_architecture.png" style="max-width:100%; height:auto; display:block;">
+        </p>
+
+        <p>The architecture permits assets in the prod catalog to be accessed from the development environment with proper permissions, typically granting read-only access to
+            prod catalog from the development setting to facilitate ML code development using production data. Data scientists can also load current production models for
+            comparison with new ones within the development environment, with model management facilitated by Unity Catalog and MLflow Tracking servers dedicated to each workspace. The document emphasizes that terminology and workflow, including environment names and Git branch management, may vary across organizations and should be adapted to meet the specific needs and circumstances of individual teams and projects.</p>
+
+        <h2>In the following sections, we provide a detailed explanation of the precise steps in which code is moved across the three environments illustrated above.</h2>
+        <p>At a high level, we have the following steps:</p>
+        <ol>
+            <li><strong>Development:</strong> ML code is developed in the development environment, with code pushed to a dev (or feature) branch.</li>
+            <li><strong>Testing:</strong> Upon making a pull request from the dev branch to the main branch, a CI trigger runs unit tests on the CI runner and integration tests in the staging environment.</li>
+            <li><strong>Merge code:</strong> After successfully passing these tests, changes are merged from the dev branch to the main branch.</li>
+            <li><strong>Release code:</strong> The release branch is cut from the main branch, and doing so deploys the project ML pipelines to the production environment.</li>
+            <li><strong>Model training and validation:</strong> The model training pipeline ingests data from the prod catalog. Upon validating, the resulting model artifact is registered to the prod catalog. A “Challenger” alias is attached to the newly registered model version.</li>
+            <li><strong>Model deployment:</strong> A model deployment pipeline evaluates the current “Champion” model versus “Challenger” model, with the best-performing model version taking the “Champion” alias after this evaluation.</li>
+            <li><strong>Model inference:</strong> Model Serving or other inference pipelines load the “Champion” model to compute predictions. Predictions are logged to inference tables, which can be used to monitor the “Champion” model’s performance.</li>
+            <li><strong>Monitoring:</strong> Scheduled or continuous pipeline to refresh Lakehouse Monitoring metric tables. Inference tables are monitored to detect data or model drift. SQL dashboards are automatically created to display monitor metrics.</li>
+        </ol>
+        </div>
+</body>
+</html>
